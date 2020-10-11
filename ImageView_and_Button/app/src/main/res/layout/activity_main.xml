@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/iv_scale"
+        android:layout_width="368dp"
+        android:layout_height="191dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/leimu" />
+
+    <Button
+        android:id="@+id/btn_fitCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bt_drawable"
+        android:text="fitcenter"
+        app:layout_constraintEnd_toStartOf="@+id/btn_center"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_fitStart" />
+
+    <Button
+        android:id="@+id/btn_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_drawable"
+        android:text="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_fitCenter"
+        app:layout_constraintTop_toTopOf="@+id/btn_fitCenter" />
+
+    <Button
+        android:id="@+id/btn_centerInside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bt_drawable"
+        android:text="centerInside"
+        app:layout_constraintEnd_toStartOf="@+id/btn_centerCrop"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_scale" />
+
+    <Button
+        android:id="@+id/btn_centerCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_drawable"
+        android:text="centercrop"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_centerInside"
+        app:layout_constraintTop_toTopOf="@+id/btn_centerInside" />
+
+    <Button
+        android:id="@+id/btn_fitXY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_drawable"
+        android:text="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_fitEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_fitEnd"
+        app:layout_constraintTop_toTopOf="@+id/btn_fitEnd" />
+
+    <Button
+        android:id="@+id/btn_fitStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bt_drawable"
+        android:text="fitstart"
+        app:layout_constraintEnd_toStartOf="@+id/btn_fitEnd"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_centerInside" />
+
+    <Button
+        android:id="@+id/btn_fitEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_drawable"
+        android:text="fitend"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_fitStart"
+        app:layout_constraintEnd_toStartOf="@+id/btn_fitXY"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_fitStart"
+        app:layout_constraintTop_toTopOf="@+id/btn_fitStart" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
