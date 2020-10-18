@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle"><!--长方形-->
+    <!--它用来描述形状图形的尺寸大小（宽度和高度）-->
+    <size
+        android:width="30dp"
+        android:height="30dp" />
+    <corners android:radius="20dp" /><!--圆角,它用来描述4个圆角的规格定义-->
+    <!--描边,它用来描述4个圆角的规格定义-->
+    <stroke
+        android:width="1dp"
+        android:color="#f0f0f0" />
+    <!--渐变,它用来描述形状内部的颜色渐变定义-->
+    <gradient
+        android:endColor="#f0f0f0"
+        android:startColor="#f0f0f0" />
+</shape>
