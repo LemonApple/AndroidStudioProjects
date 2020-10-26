@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "5_User_registration_and_login_improvements"
