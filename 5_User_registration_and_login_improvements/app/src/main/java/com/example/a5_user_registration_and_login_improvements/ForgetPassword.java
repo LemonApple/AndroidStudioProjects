@@ -90,6 +90,8 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(this, "请输入正确的验证码", Toast.LENGTH_SHORT).show();
             } else {
                 UserInfo info = new UserInfo();
+                UserInfo infoX = mHelper.queryByPhone(mPhone);
+                info.name = infoX.name;
                 info.phone = mPhone;
                 info.pwd = password_first;
                 info.update_time = DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss");
