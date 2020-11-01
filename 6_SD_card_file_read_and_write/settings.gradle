@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "6_SD_card_file_read_and_write"
