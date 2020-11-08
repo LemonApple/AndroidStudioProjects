@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.shoppingcart.MainApplication;
-import com.example.shoppingcart.R;
-import com.example.shoppingcart.ShoppingDetailActivity;
-import com.example.shoppingcart.bean.GoodsInfo;
+import com.example.a7_product_list_and_product_details.MainApplication;
+import com.example.a7_product_list_and_product_details.R;
+import com.example.a7_product_list_and_product_details.ShoppingDetailActivity;
+import com.example.a7_product_list_and_product_details.bean.GoodsInfo;
 
 import java.util.ArrayList;
 

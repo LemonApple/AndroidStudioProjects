@@ -1,6 +1,6 @@
 package com.example.a7_product_list_and_product_details.bean;
 
-import com.example.shoppingcart.R;
+import com.example.a7_product_list_and_product_details.R;
 
 import java.util.ArrayList;
 
@@ -27,33 +27,38 @@ public class GoodsInfo {
         pic = 0;
     }
 
-    // 声明一个手机商品的名称数组
+    // 声明一个银行卡商品的名称数组
     private static String[] mNameArray = {
-            "iPhone8", "Mate10", "小米6", "OPPO R11", "vivo X9S", "魅族Pro6S"
+            "花嫁卡", "王者荣耀卡1", "王者荣耀卡2", "王者荣耀卡3", "航海王卡1", "航海王卡2" , "航海王卡3", "Hello Kitty卡1", "Hello Kitty卡2"
     };
-    // 声明一个手机商品的描述数组
+    // 声明一个银行卡商品的描述数组
     private static String[] mDescArray = {
-            "Apple iPhone 8 256GB 玫瑰金色 移动联通电信4G手机",
-            "华为 HUAWEI Mate10 6GB+128GB 全网通（香槟金）",
-            "小米 MI6 全网通版 6GB+128GB 亮白色",
-            "OPPO R11 4G+64G 全网通4G智能手机 玫瑰金",
-            "vivo X9s 4GB+64GB 全网通4G拍照手机 玫瑰金",
-            "魅族 PRO6S 4GB+64GB 全网通公开版 星空黑 移动联通电信4G手机"
+            "共赴纯白之约 达标领大会员",
+            "大招好了！达标抽王者荣耀惊喜福袋1个",
+            "大招好了！达标抽王者荣耀惊喜福袋2个",
+            "大招好了！达标抽王者荣耀惊喜福袋3个",
+            "海贼王，我当定了！达标领定制马克杯1个",
+            "海贼王，我当定了！达标领定制马克杯2个",
+            "海贼王，我当定了！达标领定制马克杯3个",
+            "轻奢风范达标领下午茶1杯",
+            "轻奢风范达标领下午茶2杯"
     };
-    // 声明一个手机商品的价格数组
-    private static float[] mPriceArray = {6888, 3999, 2999, 2899, 2698, 2098};
-    // 声明一个手机商品的小图数组
+    // 声明一个银行卡商品的价格数组
+    private static float[] mPriceArray = {10, 10, 15, 20, 10, 15, 20, 10, 15};
+    // 声明一个银行卡商品的小图数组
     private static int[] mThumbArray = {
-            R.drawable.iphone_s, R.drawable.huawei_s, R.drawable.xiaomi_s,
-            R.drawable.oppo_s, R.drawable.vivo_s, R.drawable.meizu_s
+            R.drawable.huajiacards, R.drawable.wangzherongyaocard1s, R.drawable.wangzherongyaocard2s,
+            R.drawable.wangzherongyaocard3s, R.drawable.hanghaiwangcard1s, R.drawable.hanghaiwangcard2s,
+            R.drawable.hanghaiwangcard3s, R.drawable.hellokittycard1s, R.drawable.hellokittycard2s
     };
-    // 声明一个手机商品的大图数组
+    // 声明一个银行卡商品的大图数组
     private static int[] mPicArray = {
-            R.drawable.iphone, R.drawable.huawei, R.drawable.xiaomi,
-            R.drawable.oppo, R.drawable.vivo, R.drawable.meizu
+            R.drawable.huajiacard, R.drawable.wangzherongyaocard1, R.drawable.wangzherongyaocard2,
+            R.drawable.wangzherongyaocard3, R.drawable.hanghaiwangcard1, R.drawable.hanghaiwangcard2,
+            R.drawable.hanghaiwangcard3, R.drawable.hellokittycard1, R.drawable.hellokittycard2
     };
 
-    // 获取默认的手机信息列表
+    // 获取默认的银行卡信息列表
     public static ArrayList<GoodsInfo> getDefaultList() {
         ArrayList<GoodsInfo> goodsList = new ArrayList<GoodsInfo>();
         for (int i = 0; i < mNameArray.length; i++) {

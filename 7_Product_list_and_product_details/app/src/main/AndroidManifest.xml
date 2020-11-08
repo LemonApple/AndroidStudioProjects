@@ -15,12 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.7_Product_list_and_product_details">
+        <activity android:name=".ShoppingCartActivity"></activity>
         <activity
             android:name=".ShoppingDetailActivity"
-            android:theme="@style/AppBaseTheme"></activity>
-        <activity
-            android:name=".ShoppingCartActivity"
-            android:exported="true"
             android:theme="@style/AppBaseTheme" />
         <activity
             android:name=".MainActivity"
