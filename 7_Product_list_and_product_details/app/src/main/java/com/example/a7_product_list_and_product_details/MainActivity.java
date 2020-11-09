@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         // 最后一行只有一个商品项，则补上一个空白格，然后把最后一行添加到ll_channel
-        if (i % 2 == 0) {
+        if (i % 2 == 1) {//原先这里写了0是什么情况，敲桌子：（
             ll_row.addView(newLinearLayout(LinearLayout.VERTICAL, 1));
             ll_channel.addView(ll_row);
         }
