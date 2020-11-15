@@ -69,8 +69,8 @@ public class LaunchFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(mContext, "欢迎您开启美好生活", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LaunchFragment.this, MainActivity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(this, MainActivity.class);
+                    //startActivity(intent);
                 }
             });
         }

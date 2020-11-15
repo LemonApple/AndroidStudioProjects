@@ -46,8 +46,8 @@ public class ShoppingChannelActivity extends AppCompatActivity implements View.O
         tv_count = findViewById(R.id.tv_count);
         // 从布局视图中获取名叫gv_channel的网格视图
         gv_channel = findViewById(R.id.gv_channel);
-        gv_channel.setBackgroundColor(Color.RED);
-        gv_channel.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
+        gv_channel.setBackgroundColor(Color.BLUE);
+
         findViewById(R.id.iv_cart).setOnClickListener(this);
         tv_title.setText("邵然的商城");
     }
