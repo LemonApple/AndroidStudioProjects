@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "8_Shopping cart improvement and improvement, dynamic registration fragments"
