@@ -36,6 +36,12 @@
         <activity android:name=".BannerPagerActivity"
             android:exported="true"
             android:theme="@style/AppCompatTheme" />
+        <activity android:name=".RecyclerGridActivity"
+            android:exported="true" />
+        <activity android:name=".RecyclerLinearActivity"
+            android:exported="true" />
+        <activity android:name=".RecyclerStaggeredActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
