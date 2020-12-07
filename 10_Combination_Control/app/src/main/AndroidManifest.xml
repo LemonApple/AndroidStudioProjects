@@ -31,7 +31,8 @@
 
         <activity
             android:name=".TabFragmentActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/AppCompatTheme" />
     </application>
 
 </manifest>
