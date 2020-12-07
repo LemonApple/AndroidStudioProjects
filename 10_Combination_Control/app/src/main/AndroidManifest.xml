@@ -17,8 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SearchResultActvity"
+        <activity android:name=".SearchResultActvity"
             android:theme="@style/AppCompatTheme">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -28,9 +27,13 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-
-        <activity
-            android:name=".TabFragmentActivity"
+        <activity android:name=".TabFragmentActivity"
+            android:exported="true"
+            android:theme="@style/AppCompatTheme" />
+        <activity android:name=".TabLayoutActivity"
+            android:exported="true"
+            android:theme="@style/AppCompatTheme" />
+        <activity android:name=".BannerPagerActivity"
             android:exported="true"
             android:theme="@style/AppCompatTheme" />
     </application>

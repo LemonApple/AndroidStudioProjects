@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.example.a10_combination_control.fragment.BookDetailFragment;
 import com.example.a10_combination_control.fragment.BookCoverFragment;
+import com.example.a10_combination_control.fragment.BookReviewFragment;
 
 
 public class GoodsPagerAdapter extends FragmentStatePagerAdapter {
@@ -25,6 +26,9 @@ public class GoodsPagerAdapter extends FragmentStatePagerAdapter {
             return new BookCoverFragment();
         } else if (position == 1) { // 第二页展示书籍详情
             return new BookDetailFragment();
+        }
+        else if (position == 2){
+            return new BookReviewFragment();
         }
         return new BookCoverFragment();
     }
