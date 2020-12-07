@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".TabFragmentActivity">
 
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="该页面演示搜索框功能"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_head" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tl_head"
         android:layout_width="0dp"

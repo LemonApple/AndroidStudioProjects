@@ -1,35 +1,33 @@
 package com.example.a10_combination_control;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTabHost;
 
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import com.example.a10_combination_control.fragment.TabFirstFragment;
+import com.example.a10_combination_control.fragment.TabSecondFragment;
+import com.example.a10_combination_control.fragment.TabThirdFragment;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TabHost.TabSpec;
+import android.widget.TextView;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import com.example.a10_combination_control.util.DateUtil;
+import com.example.a10_combination_control.util.MenuUtil;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
-
-import com.example.a10_combination_control.fragment.TabFirstFragment;
-import com.example.a10_combination_control.fragment.TabSecondFragment;
-import com.example.a10_combination_control.fragment.TabThirdFragment;
-
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.TabHost.TabSpec;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.a10_combination_control.util.DateUtil;
-import com.example.a10_combination_control.util.MenuUtil;
 
 public class TabFragmentActivity extends AppCompatActivity {
     private static final String TAG = "TabFragmentActivity";
