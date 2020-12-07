@@ -8,10 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.example.group.widget.PagerIndicator
+    <com.example.a10_combination_control.widget.PagerIndicator
         android:id="@+id/pi_banner"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="15dp"
+        android:paddingBottom="2dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 

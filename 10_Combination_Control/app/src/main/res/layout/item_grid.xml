@@ -7,8 +7,7 @@
 
     <ImageView
         android:id="@+id/iv_pic"
-        android:paddingHorizontal="20dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="fitCenter" />
 
