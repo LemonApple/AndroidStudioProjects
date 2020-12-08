@@ -9,9 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.a7_product_list_and_product_details.MainApplication;
-import com.example.a7_product_list_and_product_details.R;
-import com.example.a7_product_list_and_product_details.bean.CartInfo;
+import com.example.finalassignment.MainApplication;
+import com.example.finalassignment.R;
+import com.example.finalassignment.bean.CartInfo;
 
 import java.util.ArrayList;
 

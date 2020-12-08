@@ -13,12 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.a7_product_list_and_product_details.bean.CartInfo;
-import com.example.a7_product_list_and_product_details.bean.GoodsInfo;
-import com.example.a7_product_list_and_product_details.database.CartDBHelper;
-import com.example.a7_product_list_and_product_details.database.GoodsDBHelper;
-import com.example.a7_product_list_and_product_details.util.DateUtil;
-import com.example.a7_product_list_and_product_details.util.SharedUtil;
+import com.example.finalassignment.bean.CartInfo;
+import com.example.finalassignment.bean.GoodsInfo2;
+import com.example.finalassignment.database.CartDBHelper;
+import com.example.finalassignment.database.GoodsDBHelper;
+import com.example.finalassignment.util.DateUtil;
+import com.example.finalassignment.util.SharedUtil;
 
 public class ShoppingDetailActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tv_title;
@@ -114,7 +114,7 @@ public class ShoppingDetailActivity extends AppCompatActivity implements View.On
         mGoodsId = getIntent().getLongExtra("goods_id", 0L);
         if (mGoodsId > 0) {
             // 根据商品编号查询商品数据库中的商品记录
-            GoodsInfo info = mGoodsHelper.queryById(mGoodsId);
+            GoodsInfo2 info = mGoodsHelper.queryById(mGoodsId);
             tv_title.setText(info.name);
             tv_goods_desc.setText(info.desc);
             tv_goods_price.setText("" + info.price);

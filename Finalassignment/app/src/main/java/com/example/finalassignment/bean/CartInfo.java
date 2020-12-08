@@ -8,7 +8,7 @@ public class CartInfo {
     public String update_time;
 
     // adapter新增
-    public GoodsInfo goods;
+    public GoodsInfo2 goods;
 
     public CartInfo() {
         rowid = 0L;
@@ -16,6 +16,6 @@ public class CartInfo {
         goods_id = 0L;
         count = 0;
         update_time = "";
-        goods = new GoodsInfo();
+        goods = new GoodsInfo2();
     }
 }

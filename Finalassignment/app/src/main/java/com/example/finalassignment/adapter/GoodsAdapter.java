@@ -13,20 +13,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.a7_product_list_and_product_details.MainApplication;
-import com.example.a7_product_list_and_product_details.R;
-import com.example.a7_product_list_and_product_details.ShoppingDetailActivity;
-import com.example.a7_product_list_and_product_details.bean.GoodsInfo;
+import com.example.finalassignment.MainApplication;
+import com.example.finalassignment.R;
+import com.example.finalassignment.ShoppingDetailActivity;
+import com.example.finalassignment.bean.GoodsInfo2;
 
 import java.util.ArrayList;
 
 public class GoodsAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
     private static final String TAG = "GoodsAdapter";
     private Context mContext; // 声明一个上下文对象
-    private ArrayList<GoodsInfo> mGoodsArray; // 声明一个商品信息队列
+    private ArrayList<GoodsInfo2> mGoodsArray; // 声明一个商品信息队列
 
     // 商品适配器的构造函数，传入上下文、商品队列与加入购物车监听器
-    public GoodsAdapter(Context context, ArrayList<GoodsInfo> goods_list, addCartListener listener) {
+    public GoodsAdapter(Context context, ArrayList<GoodsInfo2> goods_list, addCartListener listener) {
         mContext = context;
         mGoodsArray = goods_list;
         mAddCartListener = listener;
@@ -64,7 +64,7 @@ public class GoodsAdapter extends BaseAdapter implements AdapterView.OnItemClick
             // 从转换视图中获取之前保存的视图持有者
             holder = (ViewHolder) convertView.getTag();
         }
-        final GoodsInfo info = mGoodsArray.get(position);
+        final GoodsInfo2 info = mGoodsArray.get(position);
         Log.d(TAG, "info.name:"+info.name);
         holder.tv_name.setText(info.name); // 显示商品的名称
         holder.iv_thumb.setImageBitmap(MainApplication.getInstance().mIconMap.get(info.rowid)); // 显示商品的图片
@@ -99,7 +99,7 @@ public class GoodsAdapter extends BaseAdapter implements AdapterView.OnItemClick
 
     // 处理列表项的点击事件，由接口OnItemClickListener触发
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        GoodsInfo info = mGoodsArray.get(position);
+        GoodsInfo2 info = mGoodsArray.get(position);
         // 携带商品编号跳转到商品详情页面
         Intent intent = new Intent(mContext, ShoppingDetailActivity.class);
         intent.putExtra("goods_id", info.rowid);

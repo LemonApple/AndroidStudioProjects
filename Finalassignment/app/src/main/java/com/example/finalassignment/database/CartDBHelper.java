@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.a7_product_list_and_product_details.bean.CartInfo;
+import com.example.finalassignment.bean.CartInfo;
 
 import java.util.ArrayList;
 
