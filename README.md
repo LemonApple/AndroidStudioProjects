@@ -1,2 +1,23 @@
 # 作业说明
-Finalassignment文件为期末作业
+
+10_Combination_Control
+
+1_Screendisplay
+
+2_MarqueeAndBBS
+
+3_ImageView_and_Button
+
+4_LoginForm_1
+
+5_User_registration_and_login_improvements
+
+6_SD_card_file_read_and_write
+
+7_Product_list_and_product_details
+
+8_Shoppingcartimprovementandimprovementdynamicregistrationfragments
+
+9_Calendarandnavigationbuttons
+
+Finalassignment
