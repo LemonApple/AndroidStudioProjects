@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by ouyangshen on 2017/9/24.
@@ -17,6 +18,7 @@ public class DateUtil {
             format = "yyyyMMddHHmmss";
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format);
+        sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));//设置时区
         return sdf.format(new Date());
     }
 
@@ -45,6 +47,12 @@ public class DateUtil {
         time += diff_time;
         Date new_date = new Date(time);
         return sdf.format(new_date);
+    }
+
+    public static String formatDate(long time) {
+        Date date = new Date(time);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
     }
 
 }

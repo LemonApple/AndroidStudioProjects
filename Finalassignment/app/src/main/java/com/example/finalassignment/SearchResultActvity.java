@@ -1,6 +1,5 @@
 package com.example.finalassignment;
 
-
 import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Intent;

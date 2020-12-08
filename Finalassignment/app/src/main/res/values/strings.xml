@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">finalassignment</string>
-    
+
     <string name="menu_first">首页</string>
     <string name="menu_second">分类</string>
     <string name="menu_third">购物车</string>
