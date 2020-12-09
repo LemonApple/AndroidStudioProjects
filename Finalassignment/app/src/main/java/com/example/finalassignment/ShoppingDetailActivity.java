@@ -136,7 +136,7 @@ public class ShoppingDetailActivity extends AppCompatActivity implements View.On
         int id = item.getItemId();
         if (id == R.id.menu_shopping) { // 点击了菜单项“去商场购物”
             // 跳转到商场页面
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, MainActivity2.class);
             startActivity(intent);
         } else if (id == R.id.menu_cart) { // 点击了菜单项“打开购物车”
             // 跳转到购物车页面

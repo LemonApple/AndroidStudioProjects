@@ -40,7 +40,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         // 隐藏默认标题栏
         getSupportActionBar().hide();
@@ -49,7 +49,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         tv_count = findViewById(R.id.tv_count);
         ll_channel = findViewById(R.id.ll_channel);
         findViewById(R.id.iv_cart).setOnClickListener(this);
-        tv_title.setText("邵然的商场");
+        tv_title.setText("邵然的商城");
     }
 
     @Override
