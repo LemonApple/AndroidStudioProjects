@@ -11,7 +11,7 @@
 #### 5_User_registration_and_login_improvements
 ### SD卡文件读写
 #### 6_SD_card_file_read_and_write
-### 购物车完善和改进、动态注册碎片
+### 商品列表和商品详情
 #### 7_Product_list_and_product_details
 ### 购物车完善和改进、动态注册碎片
 #### 8_Shoppingcartimprovementandimprovementdynamicregistrationfragments
