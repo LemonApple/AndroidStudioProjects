@@ -19,9 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--首页：标题栏（搜索和溢出菜单），banner条、推荐商品列表（瀑布流）、底部导航、下拉刷新-->
         <activity android:name=".DepartmentStoreActivity"
             android:exported="true"
-            android:theme="@style/AppCompatTheme" /><!--首页：标题栏（搜索和溢出菜单），banner条、推荐商品列表（瀑布流）、底部导航、下拉刷新-->
+            android:theme="@style/AppCompatTheme" />
         <activity android:name=".DepartmentHomeActivity"
             android:theme="@style/AppCompatTheme" />
         <activity android:name=".DepartmentClassActivity"
@@ -42,14 +44,20 @@
             android:exported="true"
             android:theme="@style/AppCompatTheme" />
 
+        <!--App引导页-->
         <activity android:name=".LaunchImproveActivity"
-            android:exported="true" /> <!--App引导页-->
+            android:exported="true" />
 
+        <!--购物车列表：加购商品信息、数量、单价、总价、选项菜单、上下文菜单-->
         <activity android:name=".ShoppingCartActivity"
-            android:exported="true"></activity><!--购物车列表：加购商品信息、数量、单价、总价、选项菜单、上下文菜单-->
+            android:exported="true"></activity>
+
+        <!--商品详情：商品图片、描述、价格等详细信息，选项菜单-->
         <activity android:name=".ShoppingDetailActivity"
             android:exported="true"
-            android:theme="@style/AppBaseTheme" /><!--商品详情：商品图片、描述、价格等详细信息，选项菜单-->
+            android:theme="@style/AppBaseTheme" />
+
+        <!--商品列表:标题栏（搜索要求从数据库检索信息，并显示结果），商品列表、添加购物车、选项菜单-->
         <activity android:name=".MainActivity2"
             android:theme="@style/AppBaseTheme">
             <intent-filter>
@@ -57,7 +65,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity><!--商品列表:标题栏（搜索要求从数据库检索信息，并显示结果），商品列表、添加购物车、选项菜单-->
+        </activity>
+
+        <!--注册、登录：保存信息到sqllite数据库，数据库查询登录身份，记住密码功能-->
+        <activity android:name=".ForgetPassword"></activity>
+        <activity android:name=".Register" android:exported="true"/>
+        <activity android:name=".login" android:exported="true"/>
     </application>
 
 </manifest>
