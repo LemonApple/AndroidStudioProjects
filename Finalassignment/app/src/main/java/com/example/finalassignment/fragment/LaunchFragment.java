@@ -15,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.finalassignment.DepartmentStoreActivity;
 import com.example.finalassignment.MainActivity;
 import com.example.finalassignment.R;
 
@@ -74,7 +75,7 @@ public class LaunchFragment extends Fragment {
 	因为getActivity()大部分都是在fragment中使用到，而fragment需要依赖于activity，所有我们在fragment里头需要做一些动作，比如启动一个activity，就需要拿到activity对象才可以启动，而fragment对象是没有startActivity()方法的。
      */
 
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    Intent intent = new Intent(getActivity(), DepartmentStoreActivity.class);
                     startActivity(intent);
                 }
             });
