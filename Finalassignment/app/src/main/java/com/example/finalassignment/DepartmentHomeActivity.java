@@ -152,8 +152,8 @@ public class DepartmentHomeActivity extends AppCompatActivity implements BannerC
                     DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss"), Toast.LENGTH_LONG).show();
             return true;
         } else if (id == R.id.menu_about) { // 点击了关于菜单项
-            Toast.makeText(this, "这个是商城首页", Toast.LENGTH_LONG).show();
-            return true;
+            Intent intent = new Intent(this, LaunchImproveActivity.class);
+            startActivity(intent);
         } else if (id == R.id.menu_quit) { // 点击了退出菜单项
             finish();
         }

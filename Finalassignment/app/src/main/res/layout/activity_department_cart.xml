@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="sv_content,ll_account,tv_name,tv_num,tv_photo,tv_price, tv_total" />
+        app:constraint_referenced_ids="lv_cart,ll_account,tv_name,tv_num,tv_photo,tv_price, tv_total" />
 
     <TextView
         android:id="@+id/tv_photo"
@@ -96,21 +96,14 @@
         app:layout_constraintStart_toEndOf="@+id/tv_price"
         app:layout_constraintTop_toTopOf="@+id/tv_price" />
 
-    <ScrollView
-        android:id="@+id/sv_content"
+    <ListView
+        android:id="@+id/lv_cart"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/ll_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_photo">
-
-        <LinearLayout
-            android:id="@+id/ll_cart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/tv_photo" />
 
     <LinearLayout
         android:id="@+id/ll_account"
@@ -121,7 +114,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_content">
+        app:layout_constraintTop_toBottomOf="@+id/lv_cart">
 
         <TextView
             android:layout_width="0dp"
