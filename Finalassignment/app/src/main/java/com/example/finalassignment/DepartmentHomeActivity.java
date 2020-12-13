@@ -1,20 +1,31 @@
 package com.example.finalassignment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.LinearLayout.LayoutParams;
 
 import com.example.finalassignment.adapter.RecyclerCombineAdapter;
 import com.example.finalassignment.adapter.RecyclerGridAdapter;
+import com.example.finalassignment.adapter.RecyclerStaggeredAdapter;
 import com.example.finalassignment.bean.GoodsInfo;
 import com.example.finalassignment.constant.ImageList;
 import com.example.finalassignment.util.DateUtil;
@@ -24,12 +35,15 @@ import com.example.finalassignment.widget.BannerPager;
 import com.example.finalassignment.widget.SpacesItemDecoration;
 import com.example.finalassignment.widget.BannerPager.BannerClickListener;
 
-/**
- * Created by ouyangshen on 2017/10/21.
- */
+import java.util.ArrayList;
+
 @SuppressLint("DefaultLocale")
-public class DepartmentHomeActivity extends AppCompatActivity implements BannerClickListener {
+public class DepartmentHomeActivity extends AppCompatActivity implements BannerClickListener, SwipeRefreshLayout.OnRefreshListener {
     private final static String TAG = "DepartmentHomeActivity";
+
+
+    private SwipeRefreshLayout srl_simple; // 声明一个下拉刷新布局对象
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +58,58 @@ public class DepartmentHomeActivity extends AppCompatActivity implements BannerC
         initBanner(); // 初始化广告轮播条
         initGrid(); // 初始化市场网格列表
         initCombine(); // 初始化猜你喜欢的商品展示网格
+
+
+        // 从布局文件中获取名叫srl_simple的下拉刷新布局
+        srl_simple = findViewById(R.id.srl_simple);
+        // 给srl_simple设置下拉刷新监听器
+        srl_simple.setOnRefreshListener(this);
+        // 设置下拉刷新布局的进度圆圈颜色
+        srl_simple.setColorSchemeResources(
+                R.color.red, R.color.orange, R.color.green, R.color.blue);
+
+        initRecyclerStaggered(); // 初始化瀑布流布局的循环视图
     }
+
+    // 初始化瀑布流布局的循环视图
+    private void initRecyclerStaggered() {
+        // 从布局文件中获取名叫rv_staggered的循环视图
+        RecyclerView rv_staggered = findViewById(R.id.rv_staggered);
+        // 创建一个垂直方向的瀑布流布局管理器
+        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(
+                3, LinearLayout.VERTICAL);
+        // 设置循环视图的布局管理器
+        rv_staggered.setLayoutManager(manager);
+        // 构建一个服装列表的瀑布流适配器
+        RecyclerStaggeredAdapter adapter = new RecyclerStaggeredAdapter(this, GoodsInfo.getDefaultStag());
+        // 设置瀑布流列表的点击监听器
+        adapter.setOnItemClickListener(adapter);
+        // 设置瀑布流列表的长按监听器
+        adapter.setOnItemLongClickListener(adapter);
+        // 给rv_staggered设置服装瀑布流适配器
+        rv_staggered.setAdapter(adapter);
+        // 设置rv_staggered的默认动画效果
+        rv_staggered.setItemAnimator(new DefaultItemAnimator());
+        // 给rv_staggered添加列表项之间的空白装饰
+        rv_staggered.addItemDecoration(new SpacesItemDecoration(3));
+    }
+
+    // 一旦在下拉刷新布局内部往下拉动页面，就触发下拉监听器的onRefresh方法
+    public void onRefresh() {
+        // 延迟若干秒后启动刷新任务
+        mHandler.postDelayed(mRefresh, 2000);
+    }
+
+    private Handler mHandler = new Handler(); // 声明一个处理器对象
+    // 定义一个刷新任务
+    private Runnable mRefresh = new Runnable() {
+        @Override
+        public void run() {
+            // 结束下拉刷新布局的刷新动作
+            srl_simple.setRefreshing(false);
+        }
+    };
+
 
     private void initBanner() {
         // 从布局文件中获取名叫banner_pager的横幅轮播条

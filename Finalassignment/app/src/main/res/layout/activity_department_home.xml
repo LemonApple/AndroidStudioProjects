@@ -11,6 +11,11 @@
         android:background="@color/blue_light"
         app:navigationIcon="@drawable/ic_back" />
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srl_simple"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -42,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="3dp" />
 
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,9 +58,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+
             </RelativeLayout>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_staggered"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffaa" />
         </LinearLayout>
+
+
     </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>
