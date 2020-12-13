@@ -8,9 +8,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 
-/**
- * Created by ouyangshen on 2017/10/21.
- */
+
 public class DepartmentStoreActivity extends ActivityGroup implements OnClickListener {
     private static final String TAG = "DepartmentStoreActivity";
     private Bundle mBundle = new Bundle(); // 声明一个包裹对象
@@ -50,7 +48,7 @@ public class DepartmentStoreActivity extends ActivityGroup implements OnClickLis
             toActivity("first", DepartmentHomeActivity.class);
         } else if (v == ll_second) {
             // 切换到第二个活动页面DepartmentClassActivity
-            toActivity("second", DepartmentClassActivity.class);
+            toActivity("second", MainActivity2.class);
         } else if (v == ll_third) {
             // 切换到第三个活动页面DepartmentCartActivity
             toActivity("third", DepartmentCartActivity.class);

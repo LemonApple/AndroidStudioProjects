@@ -24,6 +24,8 @@ public class ClassPagerAdapter extends FragmentPagerAdapter {
             return new ClothesFragment();
         } else if (position == 1) { // 第二页展示电器
             return new AppliancesFragment();
+        }else if (position == 2) { // 第三页展示卡
+            return new AppliancesFragment();
         }
         return new ClothesFragment();
     }

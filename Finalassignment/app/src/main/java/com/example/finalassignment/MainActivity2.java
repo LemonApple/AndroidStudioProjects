@@ -1,6 +1,7 @@
 package com.example.finalassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,6 +12,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,9 +45,11 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        // 隐藏默认标题栏
-        getSupportActionBar().hide();
 
+// 从布局文件中获取名叫tl_head的工具栏
+        Toolbar tl_head = findViewById(R.id.tl_head);
+        // 使用tl_head替换系统自带的ActionBar
+        setSupportActionBar(tl_head);
         TextView tv_title = findViewById(R.id.tv_title);
         tv_count = findViewById(R.id.tv_count);
         ll_channel = findViewById(R.id.ll_channel);
@@ -253,4 +258,31 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         // 把是否首次打开写入共享参数
         SharedUtil.getIntance(this).writeShared("first", "false");
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // 从menu_cart.xml中构建菜单界面布局
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_shopping) { // 点击了菜单项“去商场购物”
+            // 跳转到商场页面
+            Intent intent = new Intent(this, MainActivity2.class);
+            startActivity(intent);
+        } else if (id == R.id.menu_cart) { // 点击了菜单项“打开购物车”
+            // 跳转到购物车页面
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.menu_return) { // 点击了菜单项“返回”
+            finish();
+        }else if (id == R.id.menu_search) { // 点击了菜单项“返回”
+            Intent intent = new Intent(this, SearchViewActivity.class);
+            startActivity(intent);
+        }
+        return true;
+    }
+
 }

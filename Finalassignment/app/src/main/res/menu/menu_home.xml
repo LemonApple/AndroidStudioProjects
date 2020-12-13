@@ -23,10 +23,10 @@
         android:title="引导页"/>
     
     <item
-        android:id="@+id/menu_quit"
+        android:id="@+id/menu_log"
         android:orderInCategory="9"
         android:icon="@drawable/ic_quit"
         app:showAsAction="never"
-        android:title="退出"/>
+        android:title="登录"/>
     
 </menu>

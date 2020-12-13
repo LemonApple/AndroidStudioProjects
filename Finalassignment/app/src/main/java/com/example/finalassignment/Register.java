@@ -7,10 +7,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -21,40 +24,49 @@ import com.example.finalassignment.bean.UserInfo;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
-    private EditText et_name;
-    private EditText et_phoneX;
-    private EditText et_passwordX;
-    private Button btn_register;
-    private UserDBHelper mHelperX; // 声明一个用户数据库的帮助器对象
+    private static final String TAG = "RegisterActivity"; //Log提示信息
+    private EditText et_registerpassword; // 声明一个编辑框对象
+    private EditText et_registerphone; // 声明一个编辑框对象
+    private EditText et_registername; // 声明一个编辑框对象
+    private Button bt_register;
+    private TextView sp_registername;
+    private TextView sp_registerphone;
+    private TextView sp_registerpassword;
+
+    private UserDBHelper myHelper; // 声明一个用户数据库的帮助器对象
+    private int myRequestCode = 0; // 跳转页面时的请求代码
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        et_name = findViewById(R.id.et_name);
-        et_phoneX = findViewById(R.id.et_phoneX);
-        et_passwordX = findViewById(R.id.et_passwordX);
-        btn_register = findViewById(R.id.btn_register);
+        sp_registername = findViewById(R.id.sp_registername);
+        et_registername = findViewById(R.id.et_registername);
+        sp_registerphone = findViewById(R.id.sp_registerphone);
+        et_registerphone = findViewById(R.id.et_registerphone);
+        sp_registerpassword = findViewById(R.id.sp_registerpassword);
+        et_registerpassword = findViewById(R.id.et_registerpassword);
+        bt_register = findViewById(R.id.bt_register);
 
-        // 给et_phoneX添加文本变更监听器
-        et_phoneX.addTextChangedListener(new HideTextWatcher(et_phoneX));
-        // 给et_passwordX添加文本变更监听器
-        et_passwordX.addTextChangedListener(new HideTextWatcher(et_passwordX));
+        // 给et_registerphone添加文本变更监听器
+        et_registerphone.addTextChangedListener(new Register.HideTextWatcher(et_registerphone));
+        // 给et_registerpassword添加文本变更监听器
+        et_registerpassword.addTextChangedListener(new Register.HideTextWatcher(et_registerpassword));
 
-        btn_register.setOnClickListener(this);
+        bt_register.setOnClickListener((View.OnClickListener) this);
     }
 
     // 定义编辑框的文本变化监听器
     private class HideTextWatcher implements TextWatcher {
-        private EditText mView;
-        private int mMaxLength;
-        private CharSequence mStr;
+        private EditText myView;// 声明一个编辑框对象
+        private int myMaxLength;// 声明一个最大长度变量
+        private CharSequence myStr; // 声明一个文本串
 
         HideTextWatcher(EditText v) {
             super();
-            mView = v;
-            mMaxLength = ViewUtil.getMaxLength(v);
+            myView = v;
+            myMaxLength = ViewUtil.getMaxLength(v);
         }
 
         // 在编辑框的输入文本变化前触发
@@ -63,57 +75,80 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
         // 在编辑框的输入文本变化时触发
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            mStr = s;
+            myStr = s;
         }
 
         // 在编辑框的输入文本变化后触发
         public void afterTextChanged(Editable s) {
-            if (mStr == null || mStr.length() == 0)
+            if (myStr == null || myStr.length() == 0)
                 return;
-            // 手机号码输入达到11位，或者密码/验证码输入达到8位，都关闭输入法软键盘
-            if ((mStr.length() == 11 && mMaxLength == 11) ||
-                    (mStr.length() == 8 && mMaxLength == 8)) {
-                ViewUtil.hideOneInputMethod(Register.this, mView);
+            // 输入文本达到11位（如手机号码）时关闭输入法
+            if (myStr.length() == 11 && myMaxLength == 11) {
+                ViewUtil.hideAllInputMethod(Register.this);
+            }
+            // 输入文本达到6位（如登录密码）时关闭输入法
+            if (myStr.length() == 8 && myMaxLength == 8) {
+                ViewUtil.hideOneInputMethod(Register.this, myView);
+            }
+            if (myStr.length() == 6 && myMaxLength == 6) {
+                ViewUtil.hideOneInputMethod(Register.this, myView);
             }
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // 获得用户数据库帮助器的一个实例
-        mHelperX = UserDBHelper.getInstance(this, 2);
-        // 恢复页面，则打开数据库连接
-        mHelperX.openWriteLink();
+
+    private void showToast(String desc) {
+        Toast.makeText(this, desc, Toast.LENGTH_SHORT).show();
     }
 
-    protected void onPause() {
-        super.onPause();
-        // 暂停页面，则关闭数据库连接
-        mHelperX.closeLink();
-    }
-
-    @Override
     public void onClick(View v) {
-        String phone = et_phoneX.getText().toString();
+        if (v.getId() == R.id.bt_register) {
+            String name = et_registername.getText().toString();
+            String phone = et_registerphone.getText().toString();
+            String pwd = et_registerpassword.getText().toString();
+            if (TextUtils.isEmpty(name)) {
+                showToast("请输入姓名");
+                return;
+            } else if (TextUtils.isEmpty(phone)) {
+                showToast("请输入手机号码");
+                return;
+            } else if (TextUtils.isEmpty(pwd)) {
+                showToast("请输入密码");
+                return;
+            }
 
-        if (phone.length() < 11) { // 手机号码不足11位
-            Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
-            return;
+            // 以下声明一个用户信息对象，并填写它的各字段值
+            UserInfo info = new UserInfo();
+            info.name = name;
+            info.phone = phone;
+            info.pwd = pwd;
+            info.update_time = DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss");
+
+            // 执行数据库帮助器的插入操作
+            myHelper.insert(info);
+            showToast("数据已写入SQLite数据库");
+
+            Intent intent = new Intent(this, login.class);
+            startActivity(intent);
         }
+    }
 
-        //把手机号码和密码保存为数据库的用户表记录
-        // 创建一个用户信息实体类
-        UserInfo info = new UserInfo();
-        info.name = et_name.getText().toString();
-        info.phone = phone;
-        info.pwd = et_passwordX.getText().toString();
-        info.update_time = DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss");
-        // 往用户数据库添加登录成功的用户信息（包含手机号码、密码、登录时间）
-        mHelperX.insert(info);
+    protected void onStart() {
+        Log.d(TAG, "onStart: openLink");
+        super.onStart();
+        // 获得数据库帮助器的实例
+        myHelper = UserDBHelper.getInstance(this, 1);
+        // 打开数据库帮助器的写连接
+        myHelper.openWriteLink();
+        // 打开数据库帮助器的读连接
+        myHelper.openReadLink();
+    }
 
-        //注册成功
-        Intent intent = new Intent(this, login.class);
-        startActivity(intent);
+    @Override
+    protected void onStop() {
+        Log.d(TAG, "onStop: closeLink");
+        super.onStop();
+        // 关闭数据库连接
+        myHelper.closeLink();
     }
 }

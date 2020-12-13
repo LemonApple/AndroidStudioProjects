@@ -59,8 +59,7 @@
             android:theme="@style/AppBaseTheme" />
 
         <!--商品列表:标题栏（搜索要求从数据库检索信息，并显示结果），商品列表、添加购物车、选项菜单-->
-        <activity android:name=".MainActivity2"
-            android:theme="@style/AppBaseTheme">
+        <activity android:name=".MainActivity2" android:exported="true">
         </activity>
 
         <!--注册、登录：保存信息到sqllite数据库，数据库查询登录身份，记住密码功能-->

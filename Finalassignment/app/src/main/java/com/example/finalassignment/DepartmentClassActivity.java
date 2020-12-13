@@ -2,6 +2,7 @@ package com.example.finalassignment;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayout.ViewPagerOnTabSelectedListener;
@@ -36,6 +37,7 @@ public class DepartmentClassActivity extends AppCompatActivity {
         setSupportActionBar(tl_head);
         mTitleArray.add("服装");
         mTitleArray.add("电器");
+        mTitleArray.add("卡");
         // 从布局文件中获取名叫vp_content的翻页视图
         vp_content = findViewById(R.id.vp_content);
         initTabLayout(); // 初始化标签布局
@@ -51,6 +53,7 @@ public class DepartmentClassActivity extends AppCompatActivity {
         // 给tab_title添加一个指定文字的标签
         tab_title.addTab(tab_title.newTab().setText(mTitleArray.get(1)));
         // 给tab_title添加标签选中监听器，该监听器默认绑定了翻页视图vp_content
+        tab_title.addTab(tab_title.newTab().setText(mTitleArray.get(2)));
         tab_title.addOnTabSelectedListener(new ViewPagerOnTabSelectedListener(vp_content));
     }
 
@@ -94,6 +97,11 @@ public class DepartmentClassActivity extends AppCompatActivity {
             Toast.makeText(this, "当前刷新时间: " + DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss")
                     , Toast.LENGTH_LONG).show();
             return true;
+        }else if (id == R.id.menu_search) {
+            // 跳转到搜索页面
+            Intent intent = new Intent(this, SearchViewActivity.class);
+            intent.putExtra("collapse", false);
+            startActivity(intent);
         } else if (id == R.id.menu_about) { // 点击了关于菜单项
             Toast.makeText(this, "这个是分类页面", Toast.LENGTH_LONG).show();
             return true;

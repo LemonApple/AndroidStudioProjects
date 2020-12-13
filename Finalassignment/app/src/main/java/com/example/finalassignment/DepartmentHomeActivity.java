@@ -219,8 +219,9 @@ public class DepartmentHomeActivity extends AppCompatActivity implements BannerC
         } else if (id == R.id.menu_about) { // 点击了关于菜单项
             Intent intent = new Intent(this, LaunchImproveActivity.class);
             startActivity(intent);
-        } else if (id == R.id.menu_quit) { // 点击了退出菜单项
-            finish();
+        } else if (id == R.id.menu_log) { // 点击了登录菜单项
+            Intent intent = new Intent(this, login.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

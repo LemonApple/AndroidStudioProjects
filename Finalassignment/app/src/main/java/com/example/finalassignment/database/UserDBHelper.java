@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class UserDBHelper extends SQLiteOpenHelper {
     private static final String TAG = "UserDBHelper"; //Log提示信息
-    private static final String DB_NAME = "user.db"; // 数据库的名称
+    private static final String DB_NAME = "user_reg_login.db"; // 数据库的名称
     private static final int DB_VERSION = 1; // 数据库的版本号
     private static UserDBHelper mHelper = null; // 数据库帮助器的实例
     private SQLiteDatabase mDB = null; // 数据库的实例
-    public static final String TABLE_NAME = "user_info"; // 表的名称
+    public static final String TABLE_NAME = "users"; // 表的名称
 
     private UserDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -71,9 +71,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
         // username、password是保留字，不要用于对字段命名
         String create_sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
                 + "_id INTEGER PRIMARY KEY  AUTOINCREMENT NOT NULL,"
-                + "name VARCHAR NOT NULL," + "age INTEGER NOT NULL,"
-                + "height LONG NOT NULL," + "weight FLOAT NOT NULL,"
-                + "married INTEGER NOT NULL," + "update_time VARCHAR NOT NULL"
+                + "name VARCHAR NOT NULL," + "update_time VARCHAR NOT NULL"
                 + ",phone VARCHAR" + ",pwd VARCHAR"
                 + ");";
         Log.d(TAG, "create_sql:" + create_sql);
@@ -81,18 +79,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
     }
 
     // 修改数据库，执行表结构变更语句
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.d(TAG, "onUpgrade oldVersion=" + oldVersion + ", newVersion=" + newVersion);
-        if (newVersion > 1) {
-            //Android的ALTER命令不支持一次添加多列，只能分多次添加
-            String alter_sql = "ALTER TABLE " + TABLE_NAME + " ADD COLUMN " + "add_time VARCHAR;";
-            Log.d(TAG, "alter_sql:" + alter_sql);
-            db.execSQL(alter_sql);
-            alter_sql = "ALTER TABLE " + TABLE_NAME + " ADD COLUMN " + "is_deleted INTEGER;";
-            Log.d(TAG, "alter_sql:" + alter_sql);
-            db.execSQL(alter_sql);
-        }
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
     // 根据指定条件删除表记录
     public int delete(String condition) {
@@ -143,10 +130,6 @@ public class UserDBHelper extends SQLiteOpenHelper {
             // 不存在唯一性重复的记录，则插入新记录
             ContentValues cv = new ContentValues();
             cv.put("name", info.name);
-            cv.put("age", info.age);
-            cv.put("height", info.height);
-            cv.put("weight", info.weight);
-            cv.put("married", info.married);
             cv.put("update_time", info.update_time);
             cv.put("phone", info.phone);
             cv.put("pwd", info.pwd);
@@ -164,10 +147,6 @@ public class UserDBHelper extends SQLiteOpenHelper {
     public int update(UserInfo info, String condition) {
         ContentValues cv = new ContentValues();
         cv.put("name", info.name);
-        cv.put("age", info.age);
-        cv.put("height", info.height);
-        cv.put("weight", info.weight);
-        cv.put("married", info.married);
         cv.put("update_time", info.update_time);
         cv.put("phone", info.phone);
         cv.put("pwd", info.pwd);
@@ -182,26 +161,23 @@ public class UserDBHelper extends SQLiteOpenHelper {
 
     // 根据指定条件查询记录，并返回结果数据队列
     public ArrayList<UserInfo> query(String condition) {
-        String sql = String.format("select rowid,_id,name,age,height,weight,married,update_time," +
-                "phone,pwd from %s where %s;", TABLE_NAME, condition);
+        String sql = String.format("select rowid,_id,name,update_time,phone,pwd from %s where %s;", TABLE_NAME, condition);
         Log.d(TAG, "query sql: " + sql);
+
         ArrayList<UserInfo> infoArray = new ArrayList<UserInfo>();
         // 执行记录查询动作，该语句返回结果集的游标
         Cursor cursor = mDB.rawQuery(sql, null);
+
+        Log.d(TAG, "query cursor count:" + cursor.getCount());
+
         // 循环取出游标指向的每条记录
         while (cursor.moveToNext()) {
             UserInfo info = new UserInfo();
             info.rowid = cursor.getLong(0); // 取出长整型数
-            info.sn = cursor.getInt(1); // 取出整型数
             info.name = cursor.getString(2); // 取出字符串
-            info.age = cursor.getInt(3);
-            info.height = cursor.getLong(4);
-            info.weight = cursor.getFloat(5); // 取出浮点数
-            //SQLite没有布尔型，用0表示false，用1表示true
-            info.married = (cursor.getInt(6) == 0) ? false : true;
-            info.update_time = cursor.getString(7);
-            info.phone = cursor.getString(8);
-            info.pwd = cursor.getString(9);
+            info.update_time = cursor.getString(3);
+            info.phone = cursor.getString(4);
+            info.pwd = cursor.getString(5);
             infoArray.add(info);
         }
         cursor.close(); // 查询完毕，关闭游标
