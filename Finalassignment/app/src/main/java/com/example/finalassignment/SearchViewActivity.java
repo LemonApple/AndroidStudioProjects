@@ -30,7 +30,7 @@ public class SearchViewActivity extends AppCompatActivity {
     private final static String TAG = "SearchViewActivity";
     private TextView tv_desc;
     private SearchView.SearchAutoComplete sac_key; // 声明一个搜索自动完成的编辑框对象
-    private String[] hintArray = {"花嫁卡", "王者荣耀卡1", "王者荣耀卡2", "王者荣耀卡3", "航海王卡1", "航海王卡2" , "航海王卡3", "Hello Kitty卡1", "Hello Kitty卡2"};
+    private String[] hintArray = {"花嫁卡", "王者荣耀卡1", "王者荣耀卡2", "王者荣耀卡3"};
 
 
     @Override
