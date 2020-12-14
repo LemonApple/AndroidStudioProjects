@@ -33,9 +33,7 @@ import com.example.finalassignment.util.Utils;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by ouyangshen on 2017/10/21.
- */
+
 public class DepartmentCartActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private final static String TAG = "DepartmentCartActivity";
 

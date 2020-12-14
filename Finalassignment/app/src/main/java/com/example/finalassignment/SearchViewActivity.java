@@ -1,5 +1,6 @@
 package com.example.finalassignment;
 
+import com.example.finalassignment.database.GoodsDBHelper;
 import com.example.finalassignment.util.DateUtil;
 import com.example.finalassignment.util.MenuUtil;
 
@@ -23,15 +24,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-/**
- * Created by ouyangshen on 2017/10/21.
- */
+
 @SuppressLint("SetTextI18n")
 public class SearchViewActivity extends AppCompatActivity {
     private final static String TAG = "SearchViewActivity";
     private TextView tv_desc;
     private SearchView.SearchAutoComplete sac_key; // 声明一个搜索自动完成的编辑框对象
-    private String[] hintArray = {"iphone", "iphone8", "iphone8 plus", "iphone7", "iphone7 plus"};
+    private String[] hintArray = {"花嫁卡", "王者荣耀卡1", "王者荣耀卡2", "王者荣耀卡3", "航海王卡1", "航海王卡2" , "航海王卡3", "Hello Kitty卡1", "Hello Kitty卡2"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
