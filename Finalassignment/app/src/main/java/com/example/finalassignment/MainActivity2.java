@@ -61,7 +61,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         if (v.getId() == R.id.iv_cart) { // 点击了购物车图标
             // 跳转到购物车页面
-            Intent intent = new Intent(this, ShoppingCartActivity.class);
+            Intent intent = new Intent(this, DepartmentCartActivity.class);
             startActivity(intent);
         }
     }
@@ -261,24 +261,16 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // 从menu_cart.xml中构建菜单界面布局
-        getMenuInflater().inflate(R.menu.menu_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_detail2, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.menu_shopping) { // 点击了菜单项“去商场购物”
-            // 跳转到商场页面
-            Intent intent = new Intent(this, MainActivity2.class);
-            startActivity(intent);
-        } else if (id == R.id.menu_cart) { // 点击了菜单项“打开购物车”
-            // 跳转到购物车页面
-            Intent intent = new Intent(this, ShoppingCartActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.menu_return) { // 点击了菜单项“返回”
+        if (id == R.id.menu_return) { // 点击了菜单项“返回”
             finish();
-        }else if (id == R.id.menu_search) { // 点击了菜单项“返回”
+        }else if (id == R.id.menu_search) { // 点击了菜单项“搜索”
             Intent intent = new Intent(this, SearchViewActivity.class);
             startActivity(intent);
         }

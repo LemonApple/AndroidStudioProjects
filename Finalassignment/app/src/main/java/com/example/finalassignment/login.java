@@ -327,10 +327,11 @@ public class login extends AppCompatActivity implements View.OnClickListener,  V
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("登录成功");
         builder.setMessage(desc);
-        builder.setPositiveButton("确定返回", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("前往商城", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
+            public void onClick(DialogInterface dialog, int which){
+                Intent intent = new Intent(login.this, DepartmentStoreActivity.class);
+                startActivity(intent);
             }
         });
         builder.setNegativeButton("我再看看", null);

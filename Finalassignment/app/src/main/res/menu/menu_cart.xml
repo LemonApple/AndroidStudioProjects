@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_shopping"
         android:orderInCategory="1"
-        android:title="去商场购物" />
+        android:title="购物日历" />
 
     <item
         android:id="@+id/menu_clear"

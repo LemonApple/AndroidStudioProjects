@@ -95,7 +95,7 @@ public class DepartmentCartActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         if (v.getId() == R.id.btn_shopping_channel) { // 点击了“商场”按钮
             // 跳转到手机商场页面
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, DepartmentStoreActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_settle) { // 点击了“结算”按钮
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -157,9 +157,9 @@ public class DepartmentCartActivity extends AppCompatActivity implements View.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.menu_shopping) { // 点击了菜单项“去商场购物”
+        if (id == R.id.menu_shopping) { // 点击了菜单项“购物日历”
             // 跳转到商场页面
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, ScheduleActivity.class);
             startActivity(intent);
         } else if (id == R.id.menu_clear) { // 点击了菜单项“清空购物车”
             // 清空购物车数据库

@@ -16,7 +16,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.finalassignment.DepartmentStoreActivity;
-import com.example.finalassignment.MainActivity;
 import com.example.finalassignment.R;
 
 public class LaunchFragment extends Fragment {
